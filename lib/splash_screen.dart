@@ -42,9 +42,10 @@ class _SplashScreenSate extends State<SplashScreen>
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Virgo Accounting Reports...",
-              style: TextStyle(color: Colors.white, fontSize: 75),
+            Center(
+              child: Text("Virgo Accounting Reports...",
+                  style: TextStyle(color: Colors.white, fontSize: 75),
+                  textAlign: TextAlign.center),
             )
           ],
         ),

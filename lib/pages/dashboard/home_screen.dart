@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:virgo/pages/report/account/gst_card_screen.dart';
-import 'package:virgo/pages/report/account/gst_screen.dart';
 import 'package:virgo/pages/report/account/headwise_screen.dart';
 import 'package:virgo/pages/report/account/ledger_screen.dart';
 import 'package:virgo/pages/report/account/outstaning_screen.dart';
@@ -57,8 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => OutstandingReportPage(),
-                    ),
+                        builder: (context) =>
+                            OutstandingBillsPage() //OutstandingReportPage(),
+                        ),
                   );
                   print('Button Pressed - Outstanding Report');
                 },

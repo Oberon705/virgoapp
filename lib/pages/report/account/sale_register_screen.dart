@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 
 class SaleRegisterPage extends StatefulWidget {
@@ -25,7 +27,7 @@ class _SaleRegisterPageState extends State<SaleRegisterPage> {
   DateTime? _fromDate;
   DateTime? _toDate;
   String? _selectedActionFilter;
-  String _actionFilterValue = '';
+  String? _actionFilterValue = '';
 
   // Filtered Data Placeholder
   List<Map<String, dynamic>> _filteredData = [];
