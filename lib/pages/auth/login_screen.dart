@@ -1,8 +1,55 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:virgo/pages/dashboard/home_screen.dart';
+import '../../services/auth_service.dart'; // Import the AuthService class
 
 class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _authService = AuthService();
+  late Future<dynamic> _loginData;
+
+  void _login(BuildContext context) {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    try {
+      // Call the login API and wait for the response
+      _loginData = _authService.fetchData(); //login(username, password);
+
+      // Check if token is null or not
+      _loginData.then((data) {
+        print('resp-data : ${json.decode(data.body)}');
+        if (data != "Error") {
+          // Successfully logged in
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Login Successful')));
+          print('Token: $data');
+
+          // Navigate to the next page after successful login
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const MyHomePage(title: "Virgo ")),
+          );
+        } else {
+          // If token is null, login failed
+          print('Login failed: No token received');
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Login Failed!')));
+        }
+      });
+    } catch (e) {
+      // Handle any errors that might occur during the login process
+      print('Error during login: $e');
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('An error occurred!')));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +126,7 @@ class LoginPage extends StatelessWidget {
                                           bottom: BorderSide(
                                               color: Colors.grey.shade200))),
                                   child: TextField(
+                                    controller: _usernameController,
                                     decoration: InputDecoration(
                                         hintText: "Enter Username or Email...",
                                         hintStyle:
@@ -94,6 +142,7 @@ class LoginPage extends StatelessWidget {
                                               color: Colors.grey.shade200))),
                                   child: TextField(
                                     obscureText: true,
+                                    controller: _passwordController,
                                     decoration: InputDecoration(
                                         hintText: "Enter Password...",
                                         hintStyle:
@@ -120,12 +169,7 @@ class LoginPage extends StatelessWidget {
                           duration: Duration(milliseconds: 1600),
                           child: MaterialButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const MyHomePage(title: "Virgo ")),
-                              );
+                              _login(context);
                             },
                             height: 50,
                             // margin: EdgeInsets.symmetric(horizontal: 50),

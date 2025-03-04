@@ -33,6 +33,8 @@ class LedgerReportCardPage extends StatelessWidget {
     // Add more sample data here
   ];
 
+  LedgerReportCardPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

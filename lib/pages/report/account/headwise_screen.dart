@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HeadwiseReportPage extends StatefulWidget {
+  const HeadwiseReportPage({super.key});
+
   @override
   _HeadwiseReportPageState createState() => _HeadwiseReportPageState();
 }

@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 
 class SaleRegisterPage extends StatefulWidget {
+  const SaleRegisterPage({super.key});
+
   @override
   _SaleRegisterPageState createState() => _SaleRegisterPageState();
 }

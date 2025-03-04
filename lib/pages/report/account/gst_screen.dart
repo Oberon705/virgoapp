@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GSTReportPage extends StatefulWidget {
+  const GSTReportPage({super.key});
+
   @override
   _GSTReportPageState createState() => _GSTReportPageState();
 }

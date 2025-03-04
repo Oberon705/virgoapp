@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LedgerReportPage extends StatefulWidget {
+  const LedgerReportPage({super.key});
+
   @override
   _LedgerReportPageState createState() => _LedgerReportPageState();
 }

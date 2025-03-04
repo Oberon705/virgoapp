@@ -578,6 +578,8 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
   
 */
 class OutstandingBillsPage extends StatefulWidget {
+  const OutstandingBillsPage({super.key});
+
   @override
   _OutstandingBillsPageState createState() => _OutstandingBillsPageState();
 }
@@ -723,13 +725,6 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
                       SizedBox(height: 8),
                       ElevatedButton(
                         onPressed: _filterData,
-                        child: Text(
-                          'Apply Filter',
-                          style: TextStyle(
-                            color: Colors.white, // Text color
-                            fontSize: 16,
-                          ),
-                        ),
                         style: ElevatedButton.styleFrom(
                           // Background color of the button
                           backgroundColor: Colors.blue,
@@ -739,6 +734,13 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
                           // Rounded corners
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          'Apply Filter',
+                          style: TextStyle(
+                            color: Colors.white, // Text color
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -756,6 +758,17 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
                         showFilterForm = true;
                       });
                     },
+                    style: ElevatedButton.styleFrom(
+                      // Background color of the button
+                      backgroundColor: Colors.blue,
+                      // Button padding
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                      // Rounded corners
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
                     child: Text(
                       'Modify Filter',
                       style: TextStyle(
@@ -763,29 +776,11 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
                         fontSize: 16,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      // Background color of the button
-                      backgroundColor: Colors.blue,
-                      // Button padding
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                      // Rounded corners
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Export File Api Call
                     },
-                    child: Text(
-                      'Export Data',
-                      style: TextStyle(
-                        color: Colors.white, // Text color
-                        fontSize: 16,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
                       // Background color of the button
                       backgroundColor: Colors.blue,
@@ -795,6 +790,13 @@ class _OutstandingBillsPageState extends State<OutstandingBillsPage> {
                       // Rounded corners
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text(
+                      'Export Data',
+                      style: TextStyle(
+                        color: Colors.white, // Text color
+                        fontSize: 16,
                       ),
                     ),
                   ),
